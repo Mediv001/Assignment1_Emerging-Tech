@@ -32,6 +32,11 @@ class NewAdapt extends BaseAdapter {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+    public void delete_item(int position) {
+        data.remove(getItem(position));
+        this.notifyDataSetChanged();
+    }
+
     public void add(ToItem dat){
         data.add(dat);
         this.notifyDataSetChanged();

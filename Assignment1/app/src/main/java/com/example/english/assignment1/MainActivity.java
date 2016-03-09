@@ -35,6 +35,15 @@ public class MainActivity extends Activity {
                 Addi(cus);
             }
         });
+
+
+        MainList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                cus.delete_item(position);
+                return true;
+            }
+        });
     }
 
     @Override
@@ -65,7 +74,7 @@ public class MainActivity extends Activity {
             ToItem ne = new ToItem(false, tx.getText().toString());
             aa.add(ne);
             aa.notifyDataSetChanged();
-            /*Toast toast = Toast.makeText(getApplicationContext(), "Your item is added !",
+            Toast toast = Toast.makeText(getApplicationContext(), "Your item is added !",
                     Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
             toast.show();
@@ -74,7 +83,7 @@ public class MainActivity extends Activity {
             Toast toast = Toast.makeText(getApplicationContext(), "No item to add !",
                     Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 0);
-            toast.show();*/
+            toast.show();
         }
         tx.setText("");
     }
